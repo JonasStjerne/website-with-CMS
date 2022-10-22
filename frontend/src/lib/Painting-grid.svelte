@@ -1,24 +1,22 @@
 <script>
-  import type { paintingService } from "src/api_service";
   import { onMount } from "svelte";
 
-  async onMount(() => {
-    const paintings = await paintingService.getAllPaintings();
-  //   var elem = document.querySelector(".grid");
-  //   // @ts-ignore
-  //   var msnry = new Masonry(elem, {
-  //     // options
-  //     itemSelector: ".grid-item",
-  //     columnWidth: 200,
-  //   });
+  onMount(() => {
+    var elem = document.querySelector(".grid");
+    // @ts-ignore
+    var msnry = new Masonry(elem, {
+      // options
+      itemSelector: ".grid-item",
+      columnWidth: 200,
+    });
 
-  //   // element argument can be a selector string
-  //   //   for an individual element
-  //   // @ts-ignore
-  //   var msnry = new Masonry(".grid", {
-  //     // options
-  //   });
-  // });
+    // element argument can be a selector string
+    //   for an individual element
+    // @ts-ignore
+    var msnry = new Masonry(".grid", {
+      // options
+    });
+  });
 </script>
 
 <div>
