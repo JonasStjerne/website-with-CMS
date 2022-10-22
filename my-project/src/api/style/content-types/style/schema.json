@@ -1,0 +1,32 @@
+{
+  "kind": "singleType",
+  "collectionName": "styles",
+  "info": {
+    "singularName": "style",
+    "pluralName": "styles",
+    "displayName": "style"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "primary": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color"
+    },
+    "accent": {
+      "type": "customField",
+      "customField": "plugin::color-picker.color"
+    },
+    "h1_size": {
+      "type": "integer"
+    },
+    "h2_size": {
+      "type": "integer"
+    },
+    "p_size": {
+      "type": "integer"
+    }
+  }
+}
