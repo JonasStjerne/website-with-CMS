@@ -1,24 +1,34 @@
 <script>
-  var elem = document.querySelector(".grid");
-  // @ts-ignore
-  var msnry = new Masonry(elem, {
-    // options
-    itemSelector: ".grid-item",
-    columnWidth: 200,
-  });
+  import type { paintingService } from "src/api_service";
+  import { onMount } from "svelte";
 
-  // element argument can be a selector string
-  //   for an individual element
-  // @ts-ignore
-  var msnry = new Masonry(".grid", {
-    // options
-  });
+  async onMount(() => {
+    const paintings = await paintingService.getAllPaintings();
+  //   var elem = document.querySelector(".grid");
+  //   // @ts-ignore
+  //   var msnry = new Masonry(elem, {
+  //     // options
+  //     itemSelector: ".grid-item",
+  //     columnWidth: 200,
+  //   });
+
+  //   // element argument can be a selector string
+  //   //   for an individual element
+  //   // @ts-ignore
+  //   var msnry = new Masonry(".grid", {
+  //     // options
+  //   });
+  // });
 </script>
 
 <div>
-  <script src="/path/to/masonry.pkgd.min.js"></script>
   <button>Til Salg</button>
   <button>Alle</button>
+  <!-- {#if paintings}
+    {#each paintings as painting}
+      {painting}
+    {/each}
+  {/if} -->
   <div class="grid">
     <div class="grid-item">...</div>
     <div class="grid-item grid-item--width2">...</div>
