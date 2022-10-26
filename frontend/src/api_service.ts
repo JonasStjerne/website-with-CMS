@@ -7,6 +7,13 @@ export default class apiService {
     return response;
   }
 
+  static async getStyles() {
+    const responseJSON = await fetch(env.API_BASE_URL + "style");
+    const response = await responseJSON.json();
+
+    return response;
+  }
+
   static async getAboutContent() {
     const reposneJson = await fetch(env.API_BASE_URL + "about?populate=*");
     const response = await reposneJson.json();
