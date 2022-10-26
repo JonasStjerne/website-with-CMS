@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import Header from "./lib/Header.svelte";
   import PaintingGrid from "./lib/Painting-grid.svelte";
 </script>

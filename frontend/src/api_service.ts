@@ -1,5 +1,5 @@
 import env from "../env";
-export class paintingService {
+export default class paintingService {
   API_TOKEN = env.API_TOKEN;
   BASE_URL = env.API_BASE_URL;
 
