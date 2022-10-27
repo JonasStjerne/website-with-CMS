@@ -1,6 +1,5 @@
 <script>
   import { onMount } from "svelte";
-  import * as Packery from "Packery";
   import env from "../../env";
   let allPaintings;
   let paintings;
