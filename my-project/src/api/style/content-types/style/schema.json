@@ -4,7 +4,8 @@
   "info": {
     "singularName": "style",
     "pluralName": "styles",
-    "displayName": "style"
+    "displayName": "style",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,13 +21,13 @@
       "customField": "plugin::color-picker.color"
     },
     "h1_size": {
-      "type": "integer"
+      "type": "string"
     },
     "h2_size": {
-      "type": "integer"
+      "type": "string"
     },
     "p_size": {
-      "type": "integer"
+      "type": "string"
     }
   }
 }
