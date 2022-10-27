@@ -20,14 +20,10 @@
 </script>
 
 <div>
-  <button>Til Salg</button>
-  <button>Alle</button>
-  <!-- {#if paintings}
-    {#each paintings as painting}
-      {painting}
-    {/each}
-  {/if} -->
+  <button on:click={setFilter("avalible")}>Til Salg</button>
+  <button on:click={setFilter("all")}>Alle</button>
   <div class="grid">
+    <!-- {#await paitings}
     <div class="grid-item">...</div>
     <div class="grid-item grid-item--width2">...</div>
     <div class="grid-item">...</div>
