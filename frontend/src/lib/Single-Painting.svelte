@@ -6,7 +6,7 @@
   let promise = apiService.getSinglePainting(1);
 </script>
 
-<div>
+<div class="standartContainer">
   {#await promise}
     Billede Loader
   {:then painting}
@@ -15,22 +15,31 @@
         painting.data.attributes.image.data.attributes.url}
       alt="Billede af kunstner"
     />
-  {/await}
-  <div>
-    <div>
-      <h1>Den lille kylling</h1>
-      <p>Acrylmaling på 40x40 lærred</p>
+    <div class="paintingRightColumn">
+      <div>
+        <h1>{painting.data.attributes.headline}</h1>
+        <p>{painting.data.attributes.subheading}</p>
+      </div>
+      <p>
+        {painting.data.attributes.content}
+      </p>
+      <h2>{painting.data.attributes.price} kr.</h2>
+      <button style="display: block; margin-top: auto;">Kontak for salg</button>
     </div>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam laborum
-      dolor odit natus? Corrupti, autem itaque? Incidunt eum officiis tenetur
-      molestiae! Maxime laborum magni natus exercitationem eveniet ex labore
-      reprehenderit!
-    </p>
-    <h2>4000 kr.</h2>
-    <button>Kontak for salg</button>
-  </div>
+  {/await}
 </div>
 
 <style>
+  .standartContainer {
+    align-items: flex-start;
+    margin-top: 5rem;
+  }
+
+  .standartContainer > * {
+    max-width: 50%;
+  }
+
+  .paintingRightColumn {
+    align-self: stretch;
+  }
 </style>
