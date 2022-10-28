@@ -1,16 +1,19 @@
 <script>
   import { onMount } from "svelte";
   import env from "../../env";
-  let allPaintings;
-  let paintings;
-  let filterState;
+  let allPaintings, paintings, filterState, response;
 
   async function getPaintings() {
-    const responseJSON = await fetch(env.API_BASE_URL + "paintings");
-    const response = await responseJSON.json();
-    allPaintings = response.data;
-    paintings = allPaintings;
-    setFilterState("avalible");
+    const res = await fetch(env.API_BASE_URL + "paintings");
+    const json = await res.json();
+    if (res.ok) {
+      allPaintings = json.data;
+      paintings = allPaintings;
+      setFilterState("avalible");
+      return json;
+    } else {
+      throw new Error(json);
+    }
   }
 
   function setFilterState(state) {
@@ -23,9 +26,11 @@
     }
   }
 
-  onMount(() => {
-    getPaintings();
-  });
+  allPaintings = getPaintings();
+
+  // onMount(() => {
+  //   getPaintings();
+  // });
 </script>
 
 <div>
@@ -38,14 +43,16 @@
     class={filterState == "all" ? "selected" : ""}>Alle</button
   >
   <div class="paintingsContainer">
-    {#if paintings}
+    {#await allPaintings}
+      Waiting...
+    {:then fetched}
       {#each paintings as painting}
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1200px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"
           alt=""
         />
       {/each}
-    {/if}
+    {/await}
   </div>
 </div>
 
