@@ -1,5 +1,21 @@
+<script>
+  import apiService from "../api_service";
+  import env from "../../env";
+  import { set_attributes } from "svelte/internal";
+
+  let promise = apiService.getSinglePainting(1);
+</script>
+
 <div>
-  <img src="" alt="" />
+  {#await promise}
+    Billede Loader
+  {:then painting}
+    <img
+      src={env.ROOT_BACKEND_URL +
+        painting.data.attributes.image.data.attributes.url}
+      alt="Billede af kunstner"
+    />
+  {/await}
   <div>
     <div>
       <h1>Den lille kylling</h1>

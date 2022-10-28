@@ -1,10 +1,10 @@
 import env from "../env";
 export default class apiService {
   static async getSinglePainting(id: number) {
-    const reposneJson = await fetch(
+    const reposneJSON = await fetch(
       env.API_BASE_URL + "paintings/" + id + "?populate=*"
     );
-    const response = await reposneJson.json();
+    const response = await reposneJSON.json();
 
     return response;
   }
