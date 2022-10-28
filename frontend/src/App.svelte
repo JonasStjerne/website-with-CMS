@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Router, Link, Route } from "svelte-routing";
   import Header from "./lib/Header.svelte";
   import PaintingGrid from "./lib/Painting-grid.svelte";
   import apiService from "./api_service";
@@ -21,17 +22,20 @@
   }
 
   let selectedPage = 1;
+  export let url = "";
 </script>
 
-<Header />
-<button on:click={() => (selectedPage = 2)} />
-<main>
-  {#if selectedPage == 1}
-    <PaintingGrid />
-  {:else if selectedPage == 2}
-    <SinglePainting />
-  {/if}
-</main>
+<Router {url}>
+  <Header />
+  <button on:click={() => (selectedPage = 2)} />
+  <main>
+    <Route path="malerier" component={PaintingGrid} />
+    <Route path="malerier/:id" let:params>
+      <SinglePainting id={params.id} />
+    </Route>
+    <!-- <Route path="om" component="about"/> -->
+  </main>
+</Router>
 
 <style>
 </style>

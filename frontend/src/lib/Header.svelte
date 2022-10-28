@@ -1,9 +1,13 @@
+<script>
+  import { Link } from "svelte-routing";
+</script>
+
 <header>
   <h1>Frank Stjerne</h1>
   <ul>
-    <li><a href="#">Malerier</a></li>
-    <li><a href="#">Om</a></li>
-    <li><a href="#">Kontakt</a></li>
+    <li><Link to="malerier">Malerier</Link></li>
+    <li><Link to="om">Om</Link></li>
+    <li><Link to="kontakt">Kontakt</Link></li>
   </ul>
 </header>
 
