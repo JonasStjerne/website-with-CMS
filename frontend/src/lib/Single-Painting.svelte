@@ -41,5 +41,13 @@
 
   .paintingRightColumn {
     align-self: stretch;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .standartContainer > * {
+      max-width: 100%;
+    }
   }
 </style>
