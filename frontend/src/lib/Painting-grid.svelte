@@ -2,11 +2,10 @@
   import { onMount } from "svelte";
   import env from "../../env";
   import { Router, Link } from "svelte-routing";
-  import { dataset_dev } from "svelte/internal";
   let allPaintings, paintings, filterState, response;
 
   async function getPaintings() {
-    const res = await fetch(env.API_BASE_URL + "paintings");
+    const res = await fetch(env.API_BASE_URL + "paintings?populate=*");
     const json = await res.json();
     if (res.ok) {
       allPaintings = json.data;
@@ -51,7 +50,8 @@
           <Link to="/malerier/{painting.id}">
             <img
               class="paintingImage"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1200px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"
+              src={env.ROOT_BACKEND_URL +
+                painting.attributes.image.data.attributes.url}
               alt=""
             />
           </Link>
