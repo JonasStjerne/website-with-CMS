@@ -2,6 +2,7 @@
   import Header from "./lib/Header.svelte";
   import PaintingGrid from "./lib/Painting-grid.svelte";
   import apiService from "./api_service";
+  import SinglePainting from "./lib/Single-Painting.svelte";
 
   setStylesFromApi();
 
@@ -18,11 +19,18 @@
       );
     });
   }
+
+  let selectedPage = 1;
 </script>
 
 <Header />
+<button on:click={() => (selectedPage = 2)} />
 <main>
-  <PaintingGrid />
+  {#if selectedPage == 1}
+    <PaintingGrid />
+  {:else if selectedPage == 2}
+    <SinglePainting />
+  {/if}
 </main>
 
 <style>
