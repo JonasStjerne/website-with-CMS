@@ -79,7 +79,8 @@
   }
 
   .paintingImage {
-    height: 400px;
+    max-width: 100%;
+    max-height: 400px;
     transition: transform 0.2s ease;
   }
 
