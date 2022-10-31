@@ -3,6 +3,7 @@
   import env from "../../env";
   export let id;
   let promise = apiService.getSinglePainting(id);
+  let aboutPromise = apiService.getAboutContent();
 </script>
 
 <div class="standartContainer">
@@ -23,7 +24,11 @@
         {painting.data.attributes.content}
       </p>
       <h2>{painting.data.attributes.price} kr.</h2>
-      <button style="display: block; margin-top: auto;">Kontak for salg</button>
+      {#await aboutPromise then about}
+        <button style="display: block; margin-top: auto;"
+          >Kontak <b>{about.data.attributes.email}</b> for køb</button
+        >
+      {/await}
     </div>
   {/await}
 </div>
