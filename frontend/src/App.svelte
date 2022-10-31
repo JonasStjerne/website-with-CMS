@@ -4,6 +4,7 @@
   import PaintingGrid from "./lib/Painting-grid.svelte";
   import apiService from "./api_service";
   import SinglePainting from "./lib/Single-Painting.svelte";
+  import About from "./lib/About.svelte";
 
   setStylesFromApi();
 
@@ -21,19 +22,17 @@
     });
   }
 
-  let selectedPage = 1;
   export let url = "";
 </script>
 
 <Router {url}>
   <Header />
-  <button on:click={() => (selectedPage = 2)} />
   <main>
-    <Route path="malerier" component={PaintingGrid} />
+    <Route path="/" component={PaintingGrid} />
     <Route path="malerier/:id" let:params>
       <SinglePainting id={params.id} />
     </Route>
-    <!-- <Route path="om" component="about"/> -->
+    <Route path="om" component={About} />
   </main>
 </Router>
 

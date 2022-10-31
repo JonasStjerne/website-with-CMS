@@ -33,15 +33,17 @@
 </script>
 
 <Router {url}>
-  <div>
-    <button
-      on:click={() => setFilterState("avalible")}
-      class={filterState == "avalible" ? "selected" : ""}>Til Salg</button
-    >
-    <button
-      on:click={() => setFilterState("all")}
-      class={filterState == "all" ? "selected" : ""}>Alle</button
-    >
+  <div class="container">
+    <div>
+      <button
+        on:click={() => setFilterState("avalible")}
+        class={filterState == "avalible" ? "selected" : ""}>Til Salg</button
+      >
+      <button
+        on:click={() => setFilterState("all")}
+        class={filterState == "all" ? "selected" : ""}>Alle</button
+      >
+    </div>
     <div class="paintingsContainer">
       {#await allPaintings}
         Waiting...
@@ -62,6 +64,13 @@
 </Router>
 
 <style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
   .paintingsContainer {
     display: flex;
     justify-content: center;
@@ -71,8 +80,14 @@
 
   .paintingImage {
     height: 400px;
+    transition: transform 0.2s ease;
   }
+
   button.selected {
     text-decoration: underline;
+  }
+
+  .paintingImage:hover {
+    transform: scale(1.01);
   }
 </style>

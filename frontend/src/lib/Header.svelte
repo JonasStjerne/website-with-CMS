@@ -3,9 +3,9 @@
 </script>
 
 <header>
-  <h1>Frank Stjerne</h1>
+  <Link to="/"><h1>Frank Stjerne</h1></Link>
   <ul>
-    <li><Link to="malerier">Malerier</Link></li>
+    <li><Link to="/">Malerier</Link></li>
     <li><Link to="om">Om</Link></li>
     <li><Link to="kontakt">Kontakt</Link></li>
   </ul>
@@ -26,5 +26,9 @@
 
   li {
     list-style: none;
+  }
+
+  a:hover {
+    filter: brightness(2);
   }
 </style>

@@ -1,19 +1,24 @@
 <script lang="ts">
-  import apiService from "src/api_service";
-  const contentPromise = apiService.getAboutContent();
+  import env from "../../env";
+  import apiService from "../api_service";
+  let promise = apiService.getAboutContent();
 </script>
 
-{#await contentPromise}
-  <p>Loading...</p>
-{:then content}
-  <div>
-    <img
-      src={content.data.attributes.picture.data.attributes.url}
-      alt={content.data.attributes.picture.data.attributes.alternativeText}
-    />
+<div class="standartContainer">
+  {#await promise}
+    <p>Loading...</p>
+  {:then aboutInfo}
     <div>
-      <h1>{content.data.attributes.heading}</h1>
-      <p>{content.data.attrubutes.content}</p>
+      <img
+        src={env.ROOT_BACKEND_URL +
+          aboutInfo.data.attributes.picture.data.attributes.url}
+        alt={env.ROOT_BACKEND_URL +
+          aboutInfo.data.attributes.picture.data.attributes.alternativeText}
+      />
+      <div>
+        <h1>{aboutInfo.data.attributes.heading}</h1>
+        <p>{aboutInfo.data.attributes.content}</p>
+      </div>
     </div>
-  </div>
-{/await}
+  {/await}
+</div>

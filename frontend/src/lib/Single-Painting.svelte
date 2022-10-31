@@ -1,7 +1,6 @@
 <script>
   import apiService from "../api_service";
   import env from "../../env";
-  import { set_attributes } from "svelte/internal";
   export let id;
   let promise = apiService.getSinglePainting(id);
 </script>
