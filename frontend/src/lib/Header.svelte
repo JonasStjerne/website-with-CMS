@@ -7,7 +7,6 @@
   <ul>
     <li><Link to="/">Malerier</Link></li>
     <li><Link to="om">Om</Link></li>
-    <li><Link to="kontakt">Kontakt</Link></li>
   </ul>
 </header>
 
@@ -22,6 +21,7 @@
   ul {
     display: flex;
     gap: 2rem;
+    padding-inline: 1rem;
   }
 
   li {
