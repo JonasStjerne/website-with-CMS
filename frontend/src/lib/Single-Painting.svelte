@@ -25,15 +25,22 @@
       </p>
       <h2>{painting.data.attributes.price} kr.</h2>
       {#await aboutPromise then about}
-        <button style="display: block; margin-top: auto;"
-          >Kontak <b>{about.data.attributes.email}</b> for køb</button
-        >
+        <div class="contactContainer">
+          Kontak <b>{about.data.attributes.email}</b> for køb
+        </div>
       {/await}
     </div>
   {/await}
 </div>
 
 <style>
+  .contactContainer {
+    margin: auto 2rem 0;
+    padding: 0.5rem;
+    border: 3px solid var(--primary);
+    border-radius: 5px;
+  }
+
   .standartContainer {
     align-items: flex-start;
     margin-top: 5rem;

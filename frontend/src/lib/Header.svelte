@@ -1,5 +1,8 @@
 <script>
   import { Link } from "svelte-routing";
+  // import env from "../../env"
+  // const location = window.location.toString();
+  // class="{location.endsWith('/') ? 'underline' : ''}"
 </script>
 
 <header>
@@ -28,7 +31,7 @@
     list-style: none;
   }
 
-  a:hover {
+  li:hover {
     filter: brightness(2);
   }
 </style>
