@@ -46,7 +46,7 @@
     </div>
     <div class="paintingsContainer">
       {#await allPaintings}
-        Waiting...
+        <div class="loader" />
       {:then fetched}
         {#each paintings as painting}
           <Link to="/malerier/{painting.id}">
