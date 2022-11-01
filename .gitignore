@@ -1,3 +1,4 @@
 
 frontend/env.ts
 .DS_Store
+my-project/config/database.js
