@@ -11,8 +11,7 @@
     Billede Loader
   {:then painting}
     <img
-      src={env.ROOT_BACKEND_URL +
-        painting.data.attributes.image.data.attributes.url}
+      src={painting.data.attributes.image.data.attributes.url}
       alt="Billede af kunstner"
     />
     <div class="paintingRightColumn">

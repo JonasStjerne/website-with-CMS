@@ -52,8 +52,7 @@
           <Link to="/malerier/{painting.id}">
             <img
               class="paintingImage"
-              src={env.ROOT_BACKEND_URL +
-                painting.attributes.image.data.attributes.url}
+              src={painting.attributes.image.data.attributes.url}
               alt=""
             />
           </Link>
